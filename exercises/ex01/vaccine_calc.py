@@ -18,3 +18,18 @@ from datetime import timedelta
 
 
 # Begin your solution here...
+population: int = int(input("Population: "))
+doses_ad: int = int(input("Doses administered: "))
+daily_doses: int = int(input("Doses per day: "))
+target: int = int(input("Target percent vaccinated: "))
+
+# Equation for calculation how many days to vaccinate
+target_population: float = population * (target / 100)
+target_remaining: float = target_population - (doses_ad / 2)
+days_needed: int = round(target_remaining / (daily_doses / 2))
+
+#Timedelta variables
+today: datetime = datetime.today()
+days_vaccinating: timedelta = timedelta(days_needed)
+finish_date: datetime = today + days_vaccinating
+print("We will reach " + str(target) + "vaccination in " + str(days_needed) + " days, which falls on " + finish_date.strftime("%B %d, %Y"))
