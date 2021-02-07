@@ -1,6 +1,6 @@
 """A vaccination calculator."""
 
-__author__ = "YOUR PID HERE"
+__author__ = "730391204"
 
 # The datetime data type is imported from the datetime library.
 # A datetime object models a specific date and time.
@@ -32,4 +32,4 @@ days_needed: int = round(target_remaining / (daily_doses / 2))
 today: datetime = datetime.today()
 days_vaccinating: timedelta = timedelta(days_needed)
 finish_date: datetime = today + days_vaccinating
-print("We will reach " + str(target) + "vaccination in " + str(days_needed) + " days, which falls on " + finish_date.strftime("%B %d, %Y"))
+print("We will reach " + str(target) + "% vaccination in " + str(days_needed) + " days, which falls on " + finish_date.strftime("%B %d, %Y"))
