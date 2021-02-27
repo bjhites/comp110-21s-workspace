@@ -4,18 +4,22 @@ __author__ = "730391204"
 
 points: int = 10
 char_class: str = ""
-name: str = ""
+player: str = ""
+
 
 def main() -> None:
+    """Entrypoint to program."""
     global points
     points += 10
     greet()
 
 
 def greet() -> None:
+    """Entrypoint to adventure."""
     global points
-    global name
-    name += input("What's your name traveler?")
+    global player
+    print("Welcome to the forest!")
+    player += input("What's your name traveler?")
     adventure_start: str = input("You stumble upon a fork in the trail, go left, right, or turn back (L/R/TB): ")
     if(adventure_start == "L"):
         points += 20
@@ -28,6 +32,7 @@ def greet() -> None:
 
 
 def turn_left() -> None:
+    """turns deeper into forest, leads character towards being a bear."""
     global points
     global char_class
     points += 5
@@ -38,16 +43,18 @@ def turn_left() -> None:
         
 
 def turn_right() -> None:
+    """turns player right, deeper into the woods towards witch hut."""
     global points
     global char_class
     points += 10
-    cabin: str =input("\n Your legs begin to ache as you crest a hill and find an old mill house beside a loud stream. Enter the cabin or contiune on? (E/C) ")
+    cabin: str = input("\n Your legs begin to ache as you crest a hill and find an old mill house beside a loud stream. Enter the cabin or contiune on? (E/C) ")
     if(cabin == "E"):
         char_class += "sorcerer"
         points = class_points(points, char_class)
 
 
 def check_adventure_points() -> bool:
+    """if character's points hit zero, end game."""
     global points
     if(points <= 0):
         print("you lost")
@@ -57,6 +64,7 @@ def check_adventure_points() -> bool:
 
 
 def class_points(points: int, char_class: str) -> int:
+    """increases points dramatically based on class."""
     if(char_class == "bear"):
         points += 500
     else:
