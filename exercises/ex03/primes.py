@@ -28,16 +28,7 @@ def list_primes(x: int, y: int) -> list[int]:
     primes: list[int] = []
     
     for item in range(x, y):
-        prime: bool = True
-        i: int = 2
-        if item < 2:
-            prime = False
-        
-        while i <= (item // 2):
-            if item % i == 0:
-                prime = False
-                print(prime)
-            i += 1
+        prime: bool = is_prime(item)
         if prime:
             primes.append(item)
     return primes
