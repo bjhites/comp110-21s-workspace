@@ -1,13 +1,12 @@
 """EX03 - prime functions."""
 
-__author__: str = "YOUR PID HERE"
+__author__: str = "730391204"
 
 
 def main() -> None:
     """Entrypoint of the program."""
     print(is_prime(6))
-    print(is_prime(-1))
-    print(is_prime(60))
+    print(list_primes(3, 10))
     # Put print statements here to test your function
     # ex. print(is_prime(5)), print(list_primes(10, 20))
 
@@ -27,15 +26,17 @@ def is_prime(x: int) -> bool:
 
 def list_primes(x: int, y: int) -> list[int]:
     primes: list[int] = []
+    
     for item in range(x, y):
         prime: bool = True
         i: int = 2
-        if x < 2:
+        if item < 2:
             prime = False
         
         while i <= (item // 2):
-            if x % item == 0:
+            if item % i == 0:
                 prime = False
+                print(prime)
             i += 1
         if prime:
             primes.append(item)
